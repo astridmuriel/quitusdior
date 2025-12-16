@@ -20,8 +20,8 @@ const MinerView = () => {
         // Simulate camera delay and photo capture
         setTimeout(() => {
             setData(prev => ({ ...prev, photo: 'https://via.placeholder.com/150' }));
-            setStep('form');
-        }, 1500);
+            setStep('analysis');
+        }, 2000);
     };
 
     const handleRegisterAndSell = (e) => {
@@ -57,8 +57,48 @@ const MinerView = () => {
                 <div className="relative w-32 h-32 rounded-full border-4 border-gold-500 animate-pulse flex items-center justify-center shadow-[0_0_50px_rgba(255,215,0,0.3)]">
                     <Camera className="w-12 h-12 text-gold-400" />
                 </div>
-                <p className="text-xl font-medium text-gold-100">Analyse du minerai...</p>
-                <p className="text-sm text-slate-500">Géolocalisation & Photo...</p>
+                <p className="text-xl font-medium text-gold-100">Analyse IA en cours...</p>
+                <div className="space-y-1">
+                    <p className="text-xs text-slate-500">Reconnaissance visuelle (Spectrométrie)</p>
+                    <p className="text-xs text-slate-500">Géolocalisation Satellite</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (step === 'analysis') {
+        return (
+            <div className="max-w-xs mx-auto space-y-6 pt-10">
+                <div className="text-center">
+                    <div className="inline-flex p-3 rounded-full bg-blue-500/20 mb-4 animate-bounce">
+                        <PackagePlus className="w-8 h-8 text-blue-400" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-white mb-1">Analyse Terminée</h2>
+                    <p className="text-slate-400 text-sm">Confiance IA: <span className="text-green-400 font-bold">98.5%</span></p>
+                </div>
+
+                <div className="bg-white/5 rounded-xl p-4 space-y-3 border border-white/10">
+                    <div className="flex justify-between items-center text-sm">
+                        <span className="text-slate-400">Type détecté</span>
+                        <span className="font-bold text-white">Or Alluvionnaire</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm">
+                        <span className="text-slate-400">Pureté Estimée</span>
+                        <span className="font-bold text-gold-500">22 Karats (91.6%)</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm">
+                        <span className="text-slate-400">Origine certifiée</span>
+                        <span className="font-bold text-blue-400 text-xs text-right">Zone Conforme<br />(Lobaye, RCA)</span>
+                    </div>
+                </div>
+
+                <div className="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+                    <div className="bg-green-500 w-full h-full animate-[shimmer_2s_infinite]"></div>
+                </div>
+
+                <Button onClick={() => setStep('form')} className="w-full">
+                    Confirmer & Peser
+                </Button>
             </div>
         );
     }

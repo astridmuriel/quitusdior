@@ -82,8 +82,9 @@ const CoopView = () => {
                                 <th className="p-4">ID Lot</th>
                                 <th className="p-4">Type</th>
                                 <th className="p-4">Poids</th>
-                                <th className="p-4">Origine</th>
-                                <th className="p-4 rounded-tr-lg">Date</th>
+                                <th className="p-4">Grade IA</th>
+                                <th className="p-4">Valeur Est.</th>
+                                <th className="p-4 rounded-tr-lg">Origine</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5">
@@ -106,8 +107,15 @@ const CoopView = () => {
                                             </span>
                                         </td>
                                         <td className="p-4 font-bold text-white">{lot.weight} {lot.type === 'gold' ? 'g' : 'ct'}</td>
-                                        <td className="p-4">{lot.location.lat.toFixed(4)}, {lot.location.lng.toFixed(4)}</td>
-                                        <td className="p-4">{new Date(lot.createdAt).toLocaleDateString()}</td>
+                                        <td className="p-4">
+                                            <span className="px-2 py-1 rounded text-xs border border-green-500/30 text-green-400 bg-green-500/10">
+                                                Grade A (98%)
+                                            </span>
+                                        </td>
+                                        <td className="p-4 font-mono text-gold-400">
+                                            {(lot.weight * (lot.type === 'gold' ? 38000 : 300000)).toLocaleString()} CFA
+                                        </td>
+                                        <td className="p-4 text-xs text-slate-400">{lot.location.lat.toFixed(2)}, {lot.location.lng.toFixed(2)}</td>
                                     </tr>
                                 ))
                             )}

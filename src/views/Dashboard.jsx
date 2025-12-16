@@ -7,6 +7,9 @@ import MinerView from './MinerView';
 import CoopView from './CoopView';
 import PaymentView from './PaymentView';
 import ExportateurView from './ExportateurView';
+import MinistryView from './MinistryView';
+import BankView from './BankView';
+import OpsView from './OpsView';
 
 const Dashboard = ({ role, onBack }) => {
 
@@ -17,16 +20,22 @@ const Dashboard = ({ role, onBack }) => {
             case 'coop': return <CoopView />;
             case 'pay': return <PaymentView />;
             case 'export': return <ExportateurView />;
+            case 'ministry': return <MinistryView />;
+            case 'bank': return <BankView />;
+            case 'ops': return <OpsView />;
             default: return <div>Role inconnu</div>;
         }
     };
 
     const roleLabels = {
-        gov: 'Administration Centrale',
-        miner: 'Espace Mineur',
+        gov: 'Tableau de Bord Stratégique (Présidence)',
+        miner: 'Espace Mineur Artisan',
         coop: 'Espace Coopérative',
-        pay: 'Portail Financier',
-        export: 'Espace Exportateur'
+        pay: 'Portail Financier & Taxes',
+        export: 'Espace Exportateur',
+        ministry: 'Opérations Ministère des Mines',
+        bank: 'Espace Partenaires Financiers',
+        ops: 'Monitoring Système (NOC)'
     };
 
     return (
