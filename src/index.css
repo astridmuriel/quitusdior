@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-midnight-900 text-slate-100 font-sans antialiased selection:bg-gold-500/30;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600;
+  }
+  .text-gradient-diamond {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-diamond-400 to-blue-500;
+  }
+  .glass-panel {
+    @apply bg-midnight-800/60 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+}
